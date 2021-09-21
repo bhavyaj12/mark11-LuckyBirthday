@@ -21,13 +21,19 @@ function calculateDigitSum(bdate) {
 }
 
 function checkLuckyBirthday () {
-    const bdate = dateOfBirth.value;
-    const dsum = calculateDigitSum(bdate);
-    if(dsum && bdate && !(luckyNumber.value == "")){
-        compareValues(dsum, luckyNumber.value);
+    
+    if(luckyNumber.value <= 0) {
+        outputBox.innerText = "Please enter a positive lucky number";
     } else {
-        outputBox.innerText = "Please enter both the values properly";
-    }  
+        const bdate = dateOfBirth.value;
+        const dsum = calculateDigitSum(bdate);
+        if(dsum && bdate && !(luckyNumber.value == "")){
+            compareValues(dsum, luckyNumber.value);
+        } else {
+            outputBox.innerText = "Please enter both the values properly";
+        }  
+    }
+    
     
 }
 
